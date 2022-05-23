@@ -5,7 +5,16 @@
     <title>Pagina principal</title>
 </head>
 <body>
-<h1 th:text="${mensaje}"></h1>
+<!--
+<h1 th:text="'Este es tu mensaje '+${mensaje}"></h1>
 <p>La fecha del servidor es: [[${fecha}]]</p>
+-->
+<h1 th:text="'Hola '+${nombre}"></h1>
+<p>La vacante que de <strong>[[${puesto}]]</strong> que estás buscando tiene los siguientes datos:</p>
+<ul>
+    <li>Fecha de publicacion:[[${fechaPublicacion}]]</li>
+    <li th:text="'Salario '+${salario}"></li>
+    <li>Vacante disponible? [[${vigencia}]]</li>
+</ul>
 </body>
 </html>
