@@ -4,24 +4,35 @@
     <!--Thymeleaf automaticamente busca los estilos dentro del siguiente path /src/main/resources/static/...-->
     <!-- @{/...} esta notacion resume a thymeleaf el path anterior, solo agregar subcarpetas creadas a partir de /static/... -->
     <link th:href="@{/css/estilos.css}" rel="stylesheet" />
+    <!--Agregando bootstrap-->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <meta charset="UTF-8">
     <title>Detalle vacante</title>
 </head>
 <body>
 <h1>Consulta el detalle de nuestras vacantes</h1>
-<table>
+<table class="table table-striped">
+    <thead>
     <tr>
-        <th>Id</th>
+        <!--<th>Id</th>-->
         <th>Vacante</th>
         <th>Descripcion</th>
         <th>Salario</th>
+        <th>Fecha</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="tempVacante:${listaVacantes}">
-        <td th:text="${tempVacante.id}"></td>
+        <!--<td th:text="${tempVacante.id}"></td>-->
         <td th:text="${tempVacante.vacante}"></td>
         <td th:text="${tempVacante.descripcionVacante}"></td>
         <td th:text="'$'+${tempVacante.salario}+' M.N'"></td>
+        <td>[[${sdf.format(tempVacante.fechaVacante)}]]</td>
     </tr>
+    </tbody>
 </table>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
 </html>

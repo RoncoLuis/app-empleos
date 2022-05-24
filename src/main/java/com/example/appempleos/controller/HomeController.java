@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -16,12 +17,15 @@ public class HomeController {
 
     @GetMapping("/detalle-vacantes")
     public String detalleVacante(Model model){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date now = new Date();
         List<Vacante> detalleVacantes = new ArrayList<>();
-        detalleVacantes.add(new Vacante(21,"Ingeniero en sistemas","Desarrollo de sistemas con java",new Date(),2500.00));
-        detalleVacantes.add(new Vacante(22,"Medico veterinario","Clinica de perros y gatos",new Date(),6500.00));
-        detalleVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos son energia sustentable",new Date(),12500.00));
-        detalleVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia de adultos mayores",new Date(),5500.00));
+        detalleVacantes.add(new Vacante(21,"Ingeniero en sistemas","Desarrollo de sistemas con java",now,2500.00));
+        detalleVacantes.add(new Vacante(22,"Medico veterinario","Clinica de perros y gatos",now,6500.00));
+        detalleVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos son energia sustentable",now,12500.00));
+        detalleVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia de adultos mayores",now,5500.00));
         model.addAttribute("listaVacantes",detalleVacantes);
+        model.addAttribute("sdf",sdf);
         return "detalle-vacante";
     }
 
