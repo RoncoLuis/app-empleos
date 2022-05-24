@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <!--Thymeleaf automaticamente busca los estilos dentro del siguiente path /src/main/resources/static/...-->
+    <!-- @{/...} esta notacion resume a thymeleaf el path anterior, solo agregar subcarpetas creadas a partir de /static/... -->
     <link th:href="@{/css/estilos.css}" rel="stylesheet" />
     <meta charset="UTF-8">
     <title>Detalle vacante</title>
