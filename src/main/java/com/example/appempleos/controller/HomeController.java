@@ -1,5 +1,6 @@
 package com.example.appempleos.controller;
 
+import com.example.appempleos.model.Reclutador;
 import com.example.appempleos.model.Vacante;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +15,18 @@ import java.util.List;
 //@RestController with RestController we cannot return a view
 @Controller //we can return an html view
 public class HomeController {
+    @GetMapping("/nuestros-reclutadores")
+    public String getReclutadores(Model model){
+        List<Reclutador> listaReclutador = new ArrayList<Reclutador>();
+        listaReclutador.add(new Reclutador("John","Thompson",'M',"Reclutador TI",true));
+        listaReclutador.add(new Reclutador("Chad","Darby",'M',"Reclutador Java",false));
+        listaReclutador.add(new Reclutador("Elisa","Cabana",'F',"Reclutador Dpto. Estadistica",true));
+        listaReclutador.add(new Reclutador("Ivan","Tinajero",'M',"Reclutador TI",true));
+        listaReclutador.add(new Reclutador("Mariana","Ortiz",'F',"Reclutador RH",false));
+        listaReclutador.add(new Reclutador("Stephan","Mareek",'M',"Reclutador AWS",true));
+        model.addAttribute("listaReclutadores",listaReclutador);
+        return "nuestros-reclutadores";
+    }
 
     @GetMapping("/detalle-vacantes")
     public String detalleVacante(Model model){
