@@ -10,11 +10,17 @@
 <p>La fecha del servidor es: [[${fecha}]]</p>
 -->
 <h1 th:text="'Hola '+${nombre}"></h1>
-<p>La vacante que de <strong>[[${puesto}]]</strong> que estás buscando tiene los siguientes datos:</p>
+<p>La vacante de <strong>[[${puesto}]]</strong> que estás buscando tiene los siguientes datos:</p>
 <ul>
     <li>Fecha de publicacion:[[${fechaPublicacion}]]</li>
     <li th:text="'Salario '+${salario}"></li>
     <li>Vacante disponible? [[${vigencia}]]</li>
+</ul>
+<h2>Para más información consulta nuestro menú</h2>
+<ul>
+    <li><a th:href="@{/detalle-vacantes}">Consulta nuestras vacantes</a></li>
+    <li><a th:href="@{/nuestros-reclutadores}">Conoce a nuestros reclutadores</a></li>
+    <li><a th:href="@{/listar-empleos}">Nuestra lista de empleos</a></li>
 </ul>
 </body>
 </html>

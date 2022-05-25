@@ -8,13 +8,23 @@ public class Vacante {
     private String descripcionVacante;
     private Date fechaVacante;
     private double salario;
+    private Integer destacado;
 
-    public Vacante(int id, String vacante, String descripcionVacante, Date fechaVacante, double salario) {
+    public Vacante(int id, String vacante, String descripcionVacante, Date fechaVacante, double salario, Integer destacado) {
         this.id = id;
         this.vacante = vacante;
         this.descripcionVacante = descripcionVacante;
         this.fechaVacante = fechaVacante;
         this.salario = salario;
+        this.destacado = destacado;
+    }
+
+    public Integer getDestacado() {
+        return destacado;
+    }
+
+    public void setDestacado(Integer destacado) {
+        this.destacado = destacado;
     }
 
     public int getId() {

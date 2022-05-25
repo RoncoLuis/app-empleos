@@ -11,7 +11,7 @@
     <title>Detalle vacante</title>
 </head>
 <body>
-<h1>Consulta el detalle de nuestras vacantes</h1>
+<h1>Conoce nuestras nuestras vacantes</h1>
 <table class="table table-striped table-hover table-bordered">
     <thead>
     <tr>
@@ -20,6 +20,7 @@
         <th>Descripcion</th>
         <th>Salario</th>
         <th>Fecha</th>
+        <th>Vacante destacada</th>
     </tr>
     </thead>
     <tbody>
@@ -29,9 +30,18 @@
         <td th:text="${tempVacante.descripcionVacante}"></td>
         <td th:text="'$'+${tempVacante.salario}+' M.N'"></td>
         <td>[[${sdf.format(tempVacante.fechaVacante)}]]</td>
+        <td>
+            <span th:if="${tempVacante.destacado == 1}" class="badge text-bg-danger">Aplica Ya!</span>
+            <span th:unless="${tempVacante.destacado == 1}" class="badge text-bg-success">Aplica</span>
+        </td>
     </tr>
     </tbody>
 </table>
+
+<h2>Menu</h2>
+<ul>
+    <li><a th:href="@{/}">Inicio</a></li>
+</ul>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
