@@ -7,12 +7,23 @@ public class Reclutador {
     private String especialidad;
     private boolean reclutando;
 
-    public Reclutador(String nombre, String apellido, char genero, String especialidad, boolean reclutando) {
+    private String empresa;
+
+    public Reclutador(String nombre, String apellido, char genero, String especialidad, boolean reclutando, String empresa) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.genero = genero;
         this.especialidad = especialidad;
         this.reclutando = reclutando;
+        this.empresa = empresa;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
     public String getNombre() {

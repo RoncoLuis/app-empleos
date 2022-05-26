@@ -11,6 +11,7 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
     <tr>
+        <th>Empresa</th>
         <th>Nombre</th>
         <th>Genero</th>
         <th>Especialidad</th>
@@ -19,10 +20,28 @@
     </thead>
     <tbody>
         <tr th:each="recluta:${listaReclutadores}">
-            <td th:text="${recluta.nombre}+' '+${recluta.apellido}"></td>
             <td>
-                <span th:if="${recluta.genero} == 'F'">Mujer</span>
-                <span th:unless="${recluta.genero} == 'F'">Hombre</span>
+                <img th:src="@{/images/faang-logo/{img} (img=${recluta.empresa+'.png'})}">
+                [[${recluta.empresa}]]
+            </td>
+            <!-- SI el recluta es hombre mostrar icono de hombre, caso contrario mujer -->
+            <td>
+                <span th:if="${recluta.genero} == 'F'">
+                    <img th:src="@{/images/woman.png}">
+                    [[${recluta.nombre}+' '+${recluta.apellido}]]
+                </span>
+                <span th:unless="${recluta.genero} == 'F'">
+                    <img th:src="@{/images/man.png}">
+                     [[${recluta.nombre}+' '+${recluta.apellido}]]
+                </span>
+            </td>
+            <td>
+                <span th:if="${recluta.genero} == 'F'">
+                    Mujer
+                </span>
+                <span th:unless="${recluta.genero} == 'F'">
+                    Hombre
+                </span>
             </td>
             <td th:text="${recluta.especialidad}"></td>
             <td th:text="${recluta.reclutando == true} ? 'Si':'No'"></td>
