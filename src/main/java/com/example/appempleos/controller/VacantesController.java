@@ -22,4 +22,9 @@ public class VacantesController {
         return "vacantes/mensaje-eliminar";
     }
 
+    @GetMapping(path = "/crear-vacante")
+    public String crearVacante(){
+        return "vacantes/form-vacante";
+    }
+
 }

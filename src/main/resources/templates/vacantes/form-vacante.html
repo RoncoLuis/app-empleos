@@ -5,24 +5,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <meta charset="UTF-8">
-    <title>Form Categoria</title>
+    <title>Formularion vacante</title>
 </head>
 <body>
-<h1>Formulario de categoria</h1>
-<p>Utiliza este formulario para crear una nueva categoria</p>
-
-<!-- thymeleaf forms-->
-<form th:action="@{/categoria/save}" method="post">
+<h1>Formulario de vacantes</h1>
+<p>Utiliza este formulario para crear una nueva vacante</p>
+<form>
     <div class="form-group">
-        <label for="formGroupExampleInput">Nombre</label>
-        <!-- Atributo name coincide con CategoriasController-->
-        <input type="text" class="form-control" name="nombreCategoria" id="formGroupExampleInput" placeholder="nombre categoria">
+        <label for="formGroupExampleInput">Nombre de la vacante</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Descripcion</label>
-        <textarea class="form-control" name="descripcion" id="exampleFormControlTextarea1" rows="3" placeholder="Inserta una descripcion"></textarea>
+        <label for="exampleFormControlTextarea1">Descripcion Vacante</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
-    <input type="submit" value="Guardar" class="btn btn-success">
 </form>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"

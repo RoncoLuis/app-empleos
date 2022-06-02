@@ -2,13 +2,10 @@ package com.example.appempleos.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(value="/categorias")
+@RequestMapping(value="/categoria")
 public class CategoriasController {
 
     @GetMapping(path = "/{mi-variable}")
@@ -25,11 +22,15 @@ public class CategoriasController {
 
     @RequestMapping(path = "/create", method = RequestMethod.GET)
     public String crear() {
+
         return "categorias/formCategoria";
     }
 
     @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public String guardar() {
+    public String guardar(@RequestParam("nombreCategoria") String nombreCategoria,@RequestParam("descripcion") String descripcion) {
+        //los argumentos del @RequestParam coinciden con atributo name en formCategoria
+        System.out.println("Nombre de la categoria:"+nombreCategoria);
+        System.out.println("Descripcion:"+descripcion);
         return "categorias/listCategorias";
     }
 }
