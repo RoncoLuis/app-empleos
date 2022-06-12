@@ -1,6 +1,7 @@
-package com.example.appempleos.services;
+package com.example.appempleos.serviceImpls;
 
 import com.example.appempleos.model.Vacante;
+import com.example.appempleos.services.IVacanteService;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
@@ -9,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
-public class VacantesServiceImpl implements IVacanteService{
+public class VacantesServiceImpl implements IVacanteService {
     
     private List<Vacante> listaVacantes = null; 
     @Override

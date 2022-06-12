@@ -1,6 +1,7 @@
-package com.example.appempleos.services;
+package com.example.appempleos.serviceImpls;
 
 import com.example.appempleos.model.Reclutador;
+import com.example.appempleos.services.IPrueba;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
