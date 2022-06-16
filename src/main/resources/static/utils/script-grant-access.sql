@@ -10,3 +10,6 @@ alter user '<username>'@'localhost' identified with mysql_native_password by '<u
 -- dbname: webappempleos
 -- username: vacantesdev
 -- password: vacantesdev
+
+    --(Chad Darby)
+-- connection resource: JSP, Servlets and JDBC for Beginners: Build a Database App: lecture 80
