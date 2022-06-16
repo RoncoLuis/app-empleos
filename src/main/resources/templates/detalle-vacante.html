@@ -32,7 +32,7 @@
         <td th:text="'$'+${tempVacante.salario}+' M.N'"></td>
         <td>[[${sdf.format(tempVacante.fechaVacante)}]]</td>
         <td>
-            <span th:if="${tempVacante.destacado == 1}" class="badge text-bg-danger">Aplica Ya!😎</span>
+            <span th:if="${tempVacante.destacado == 1}" class="badge text-bg-danger">🔥!Aplica Ya!🔥</span>
             <span th:unless="${tempVacante.destacado == 1}" class="badge text-bg-success">Aplica</span>
         </td>
         <td>

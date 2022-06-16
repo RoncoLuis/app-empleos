@@ -16,10 +16,10 @@ public class VacantesServiceImpl implements IVacanteService {
     public List<Vacante> listarVacantes() {
         Date now = new Date();
         listaVacantes = new ArrayList<>();
-        listaVacantes.add(new Vacante(21,"Ingeniero en sistemas","Desarrollo de sistemas con java",now,2500.00,1));
+        listaVacantes.add(new Vacante(21,"Ingeniero en sistemas","Desarrollo de aplicaciones empresariales con Java 11",now,2500.00,1));
         listaVacantes.add(new Vacante(22,"Medico veterinario","Clinica de perros y gatos",now,6500.00,0));
-        listaVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos son energia sustentable",now,12500.00,1));
-        listaVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia de adultos mayores",now,5500.00,0));
+        listaVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos con energia solar",now,12500.00,1));
+        listaVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia en adultos mayores",now,5500.00,0));
         return listaVacantes;
     }
 
