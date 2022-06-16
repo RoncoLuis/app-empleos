@@ -4,7 +4,6 @@ import com.example.appempleos.model.Vacante;
 import com.example.appempleos.services.IVacanteService;
 import org.springframework.stereotype.Service;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,5 +21,19 @@ public class VacantesServiceImpl implements IVacanteService {
         listaVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos son energia sustentable",now,12500.00,1));
         listaVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia de adultos mayores",now,5500.00,0));
         return listaVacantes;
+    }
+
+    @Override
+    public Vacante buscarPorId(Integer vacanteId) {
+        //1. iterar lista
+        //2. definir condicion de busqueda
+        //3. retornar el objeto
+        for(Vacante v : listaVacantes){
+            if(v.getId() == vacanteId){
+                return v;
+            }
+        }
+        // retornar null si no se encuentra la vacante en lista
+        return null;
     }
 }

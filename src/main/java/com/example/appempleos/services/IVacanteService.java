@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface IVacanteService {
     public List<Vacante> listarVacantes();
+    public Vacante buscarPorId(Integer vacanteId);
 }

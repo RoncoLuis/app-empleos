@@ -1,5 +1,8 @@
 package com.example.appempleos.controller;
 
+import com.example.appempleos.model.Vacante;
+import com.example.appempleos.services.IVacanteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -8,10 +11,15 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping(value = "/vacantes")
 public class VacantesController {
 
+    @Autowired
+    private IVacanteService iVacanteService;
     @GetMapping(path = "/view/{id}")
     public String verDetalle(@PathVariable(name = "id") int id, Model model){
-        System.out.println("El id de la vacante es: "+id);
-        model.addAttribute("idVacante",id);
+        Vacante vacanteSelected = iVacanteService.buscarPorId(id);
+
+        //pasar el objeto completo a la vista
+        model.addAttribute("vacante",vacanteSelected);
+
         return "vacantes/detalle-vacante";
     }
 

@@ -8,16 +8,27 @@
     <title>Detalle Vacante</title>
 </head>
 <body>
-<h1 th:text="'El id de la vacante es: '+${idVacante}"></h1>
+<h1 th:text="'Detalle de la vacante:' +${vacante.vacante}"></h1>
+ID vacante: [[${vacante.id}]]
+<br>
+Descripción: [[${vacante.descripcionVacante}]]
+<br>
+Fecha: [[${vacante.fechaVacante}]]
+<br>
+Salario: $[[${vacante.salario}]] M.N
+
+
 
 <h3>¿Que desea hacer con esta vacante?</h3>
-<ul>
-    <li><a th:href="@{/vacantes/eliminar-vacante(id=${idVacante})}" class="btn btn-success">Actualizar</a></li>
-    <li><a th:href="@{/vacantes/eliminar-vacante(id=${idVacante})}" class="btn btn-danger">Eliminar</a></li>
-    <li><a th:href="@{/detalle-vacantes}" class="btn btn-info">Regresar</a></li>
-</ul>
-
-
+<table>
+    <thead>
+    <tr>
+        <th><a th:href="@{/vacantes/eliminar-vacante(id=${idVacante})}" class="btn btn-success">Actualizar</a></th>
+        <th><a th:href="@{/vacantes/eliminar-vacante(id=${idVacante})}" class="btn btn-danger">Eliminar</a></th>
+        <th><a th:href="@{/detalle-vacantes}" class="btn btn-info">Regresar</a></th>
+    </tr>
+    </thead>
+</table>
 
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
