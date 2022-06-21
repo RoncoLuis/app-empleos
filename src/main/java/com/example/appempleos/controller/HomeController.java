@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 //@RestController with RestController we cannot return a view
@@ -50,12 +52,17 @@ public class HomeController {
     }
     @GetMapping("/")
     public String home(Model model){
-        String tituloPagina = "Página principal buscaEmpleoApp";
+        String tituloPagina = "EmpleosApp | Aplicación para publicar Ofertas de Trabajo.";
+        String autor = "Luis Ronquillo";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date fechaPub = new Date();
+        Calendar calendar = new GregorianCalendar();
+        calendar.setTime(fechaPub);
+        int year = calendar.get(Calendar.YEAR);
 
         model.addAttribute("tituloPagina", tituloPagina);
-        model.addAttribute("fechaPublicacion", fechaPub);
+        model.addAttribute("autor",autor);
+        model.addAttribute("fechaPublicacion", year);
 
         return "home";
     }
