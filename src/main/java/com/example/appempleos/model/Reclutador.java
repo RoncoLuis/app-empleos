@@ -6,7 +6,6 @@ public class Reclutador {
     private char genero;
     private String especialidad;
     private boolean reclutando;
-
     private String empresa;
 
     public Reclutador(String nombre, String apellido, char genero, String especialidad, boolean reclutando, String empresa) {

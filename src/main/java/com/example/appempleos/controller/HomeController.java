@@ -52,6 +52,7 @@ public class HomeController {
     }
     @GetMapping("/")
     public String home(Model model){
+        List<Vacante> listaDestacados = iVacanteService.listarVacantes();
         String tituloPagina = "EmpleosApp | Aplicación para publicar Ofertas de Trabajo.";
         String autor = "Luis Ronquillo";
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -63,6 +64,7 @@ public class HomeController {
         model.addAttribute("tituloPagina", tituloPagina);
         model.addAttribute("autor",autor);
         model.addAttribute("fechaPublicacion", year);
+        model.addAttribute("listaDestacados",listaDestacados);
 
         return "home";
     }

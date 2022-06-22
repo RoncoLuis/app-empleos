@@ -16,11 +16,24 @@ public class VacantesServiceImpl implements IVacanteService {
     public List<Vacante> listarVacantes() {
         Date now = new Date();
         listaVacantes = new ArrayList<>();
-        listaVacantes.add(new Vacante(21,"Ingeniero en sistemas","Desarrollo de aplicaciones empresariales con Java 11",now,2500.00,1));
-        listaVacantes.add(new Vacante(22,"Medico veterinario","Clinica de perros y gatos",now,6500.00,0));
-        listaVacantes.add(new Vacante(23,"Ingeniero Industrial","Desarrollo procesos con energia solar",now,12500.00,1));
-        listaVacantes.add(new Vacante(24,"Fisioterapeuta","Fisioterapia en adultos mayores",now,5500.00,0));
+        listaVacantes.add(new Vacante(21,"Ingeniero en sistemas","logo1","Desarrollo de aplicaciones empresariales con Java 11",now,2500.00,1));
+        listaVacantes.add(new Vacante(22,"Medico veterinario","logo2","Clinica de perros y gatos",now,6500.00,0));
+        listaVacantes.add(new Vacante(23,"Ingeniero Industrial","logo3" ,"Desarrollo procesos con energia solar",now,12500.00,1));
+        listaVacantes.add(new Vacante(24,"Fisioterapeuta","logo4","Fisioterapia en adultos mayores",now,5500.00,0));
         return listaVacantes;
+    }
+
+    @Override
+    public List<Vacante> listaDescatados() {
+        List<Vacante> listarVacantes = listarVacantes();
+        List<Vacante> listaDestacados = null;
+        for(int i=0; i<listarVacantes.size(); i++){
+            if(listarVacantes.get(i).getDestacado() == 1){
+                listaDestacados.add(listarVacantes.get(i));
+            }
+        }
+
+        return listaDestacados;
     }
 
     @Override

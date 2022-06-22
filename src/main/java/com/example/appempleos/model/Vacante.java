@@ -5,14 +5,16 @@ import java.util.Date;
 public class Vacante {
     private int id;
     private String vacante;
+    private String empresa;
     private String descripcionVacante;
     private Date fechaVacante;
     private double salario;
     private Integer destacado;
 
-    public Vacante(int id, String vacante, String descripcionVacante, Date fechaVacante, double salario, Integer destacado) {
+    public Vacante(int id, String vacante, String empresa, String descripcionVacante, Date fechaVacante, double salario, Integer destacado) {
         this.id = id;
         this.vacante = vacante;
+        this.empresa = empresa;
         this.descripcionVacante = descripcionVacante;
         this.fechaVacante = fechaVacante;
         this.salario = salario;
@@ -41,6 +43,14 @@ public class Vacante {
 
     public void setVacante(String vacante) {
         this.vacante = vacante;
+    }
+
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
     }
 
     public String getDescripcionVacante() {
