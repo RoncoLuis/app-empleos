@@ -14,10 +14,11 @@ public class VacantesController {
     @Autowired
     private IVacanteService iVacanteService;
     @GetMapping(path = "/view/{id}")
+    //Old - No se usara, ahora solo vacantes/detalle-vacantes
     public String verDetalle(@PathVariable(name = "id") int id, Model model){
+        // 1. Recuperamos el objeto completo
         Vacante vacanteSelected = iVacanteService.buscarPorId(id);
-
-        //pasar el objeto completo a la vista
+        //2. Pasamos a la vista el objeto completo
         model.addAttribute("vacante",vacanteSelected);
 
         return "vacantes/detalle-vacante";

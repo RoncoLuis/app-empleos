@@ -80,7 +80,8 @@
                 <h2 th:text="${vacantes.vacante}"></h2>
                 <h6 class="card-title"><strong>Publicado: </strong> <span>[[${vacantes.fechaVacante}]] </span></h6>
                 <p>[[${vacantes.descripcionVacante}]]</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                <!--Go to VacantesController and dispatch id-->
+                <p><a class="btn btn-secondary" th:href="@{/vacantes/view/{id} (id=${vacantes.id})}" role="button">Ver detalle&raquo;&raquo;</a></p>
             </div>
             <!--</span>
             <span th:unless="${vacantes.destacado} == 0"></span>-->
