@@ -34,13 +34,13 @@ public class HomeController {
         return "nuestros-reclutadores";
     }
 
-    @GetMapping("/detalle-vacantes")
+    @GetMapping("/lista-vacantes")
     public String detalleVacante(Model model){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         List<Vacante> detalleVacantes = iVacanteService.listarVacantes();
         model.addAttribute("listaVacantes",detalleVacantes);
         model.addAttribute("sdf",sdf);
-        return "detalle-vacante";
+        return "lista-vacante";
     }
 
     @GetMapping("/listar-empleos")
