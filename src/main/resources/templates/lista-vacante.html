@@ -21,29 +21,29 @@
 <table class="table table-striped table-hover table-bordered">
     <thead>
     <tr>
-        <th>Id</th>
+        <!--<th>Id</th>-->
         <th>Vacante</th>
         <th>Descripcion</th>
         <th>Salario</th>
         <th>Fecha</th>
         <th>Vacante destacada</th>
-        <th>Ver Vacante</th>
+        <!--<th>Ver Vacante</th>-->
     </tr>
     </thead>
     <tbody>
     <tr th:each="tempVacante:${listaVacantes}">
-        <td th:text="${tempVacante.id}"></td>
-        <td th:text="${tempVacante.vacante}"></td>
-        <td th:text="${tempVacante.descripcionVacante}"></td>
+       <!-- <td th:text="${tempVacante.id}"></td> -->
+        <td th:text="${tempVacante.nombreVacante}"></td>
+        <td th:text="${tempVacante.descripcion}"></td>
         <td th:text="'$'+${tempVacante.salario}+' M.N'"></td>
-        <td>[[${sdf.format(tempVacante.fechaVacante)}]]</td>
+        <td>[[${sdf.format(tempVacante.fechaPublicacion)}]]</td>
         <td>
-            <span th:if="${tempVacante.destacado == 1}" class="badge text-bg-danger">🔥!Aplica Ya!🔥</span>
-            <span th:unless="${tempVacante.destacado == 1}" class="badge text-bg-success">Aplica</span>
+            <span th:if="${tempVacante.vacanteDestacada == 1}" class="badge text-bg-danger">🔥!Aplica Ya!🔥</span>
+            <span th:unless="${tempVacante.vacanteDestacada == 1}" class="badge text-bg-success">Aplica</span>
         </td>
         <td>
             <!-- Url dinamica -->
-            <a th:href="@{/vacantes/view/{id} (id=${tempVacante.id})}" class="btn btn-success">Detalle</a>
+            <!--<a th:href="@{/vacantes/view/{id} (id=${tempVacante.id})}" class="btn btn-success">Detalle</a>-->
         </td>
     </tr>
     </tbody>

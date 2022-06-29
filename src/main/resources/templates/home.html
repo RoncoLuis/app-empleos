@@ -50,14 +50,16 @@
         <div th:each="vacantes:${listaDestacados}" class="row">
             <!--<span th:if="${vacantes.destacado} == 1">-->
             <div class="col-md-3">
-                <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${vacantes.empresa+'.png'}) }" alt="logo-empresa" width="220" height="220">
+                <!--TODO: arreglar imagen, modelo no recibe imagen y no se pasa en formulario-->
+               <!-- <img class="rounded mx-auto d-block" th:src="@{/images/{img} (img=${vacantes.empresa+'.png'}) }" alt="logo-empresa" width="220" height="220">-->
             </div>
             <div class="col-md-9">
-                <h2 th:text="${vacantes.vacante}"></h2>
-                <h6 class="card-title"><strong>Publicado: </strong> <span>[[${vacantes.fechaVacante}]] </span></h6>
-                <p>[[${vacantes.descripcionVacante}]]</p>
+                <h2 th:text="${vacantes.nombreVacante}"></h2>
+                <h6 class="card-title"><strong>Publicado: </strong> <span>[[${vacantes.fechaPublicacion}]] </span></h6>
+                <p>[[${vacantes.descripcion}]]</p>
                 <!--Go to VacantesController and dispatch id-->
-                <p><a class="btn btn-secondary" th:href="@{/vacantes/view/{id} (id=${vacantes.id})}" role="button">Ver detalle&raquo;&raquo;</a></p>
+                <!--TODO: arreglar id, no hay en el formulario de vacantes-->
+                <!--<p><a class="btn btn-secondary" th:href="@{/vacantes/view/{id} (id=${vacantes.id})}" role="button">Ver detalle&raquo;&raquo;</a></p>-->
             </div>
             <!--</span>
             <span th:unless="${vacantes.destacado} == 0"></span>-->

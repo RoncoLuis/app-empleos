@@ -11,15 +11,10 @@ import java.util.List;
 @Service
 public class VacantesServiceImpl implements IVacanteService {
     
-    private List<Vacante> listaVacantes = null; 
+    private List<Vacante> listaVacantes = new ArrayList<Vacante>();
     @Override
     public List<Vacante> listarVacantes() {
-        Date now = new Date();
-        listaVacantes = new ArrayList<>();
-        listaVacantes.add(new Vacante(21,"Ingeniero en sistemas","logo1","Desarrollo de aplicaciones empresariales con Java 11",now,2500.00,1));
-        listaVacantes.add(new Vacante(22,"Medico veterinario","logo2","Clinica de perros y gatos",now,6500.00,0));
-        listaVacantes.add(new Vacante(23,"Ingeniero Industrial","logo3" ,"Desarrollo procesos con energia solar",now,12500.00,1));
-        listaVacantes.add(new Vacante(24,"Fisioterapeuta","logo4","Fisioterapia en adultos mayores",now,5500.00,0));
+
         return listaVacantes;
     }
 
@@ -28,7 +23,7 @@ public class VacantesServiceImpl implements IVacanteService {
         List<Vacante> listarVacantes = listarVacantes();
         List<Vacante> listaDestacados = null;
         for(int i=0; i<listarVacantes.size(); i++){
-            if(listarVacantes.get(i).getDestacado() == 1){
+            if(listarVacantes.get(i).getVacanteDestacada() == 1){
                 listaDestacados.add(listarVacantes.get(i));
             }
         }
@@ -42,11 +37,22 @@ public class VacantesServiceImpl implements IVacanteService {
         //2. definir condicion de busqueda
         //3. retornar el objeto
         for(Vacante v : listaVacantes){
-            if(v.getId() == vacanteId){
+            if(v.getIdVacante() == vacanteId){
                 return v;
             }
         }
         // retornar null si no se encuentra la vacante en lista
         return null;
+    }
+
+    @Override
+    public void guardarVacante(Vacante vacante) {
+        System.out.println("=== Vacante ===");
+        System.out.println("Nombre vacante: " + vacante.getNombreVacante());
+        System.out.println("Descripcion: " + vacante.getDescripcion());
+        System.out.println("fecha: " + vacante.getFechaPublicacion());
+        System.out.println("destacado: " + vacante.getVacanteDestacada());
+        System.out.println("salario: " + vacante.getSalario());
+        listaVacantes.add(vacante);
     }
 }

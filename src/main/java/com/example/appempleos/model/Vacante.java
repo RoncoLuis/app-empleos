@@ -3,70 +3,86 @@ package com.example.appempleos.model;
 import java.util.Date;
 
 public class Vacante {
-    private int id;
-    private String vacante;
-    private String empresa;
-    private String descripcionVacante;
-    private Date fechaVacante;
+    private int idVacante;
+    private String nombreVacante; //titulo o nombre del puesto vacante
+    private String descripcion;
+    private String categoria;
+    private String estatus;
+    private Date fechaPublicacion;
+    private Integer vacanteDestacada;
     private double salario;
-    private Integer destacado;
+    //TODO: AGREGAR atributo imagen
+    //private String imagen
+    private String detallesVacante;
 
-    public Vacante(int id, String vacante, String empresa, String descripcionVacante, Date fechaVacante, double salario, Integer destacado) {
-        this.id = id;
-        this.vacante = vacante;
-        this.empresa = empresa;
-        this.descripcionVacante = descripcionVacante;
-        this.fechaVacante = fechaVacante;
+    public Vacante() {
+    }
+
+    public Vacante(String nombreVacante, String descripcion, String categoria, String estatus, Date fechaPublicacion, Integer vacanteDestacada, double salario, String detallesVacante) {
+        this.nombreVacante = nombreVacante;
+        this.descripcion = descripcion;
+        this.categoria = categoria;
+        this.estatus = estatus;
+        this.fechaPublicacion = fechaPublicacion;
+        this.vacanteDestacada = vacanteDestacada;
         this.salario = salario;
-        this.destacado = destacado;
+        this.detallesVacante = detallesVacante;
     }
 
-    public Integer getDestacado() {
-        return destacado;
+    public int getIdVacante() {
+        return idVacante;
     }
 
-    public void setDestacado(Integer destacado) {
-        this.destacado = destacado;
+    public void setIdVacante(int idVacante) {
+        this.idVacante = idVacante;
     }
 
-    public int getId() {
-        return id;
+    public String getNombreVacante() {
+        return nombreVacante;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNombreVacante(String nombreVacante) {
+        this.nombreVacante = nombreVacante;
     }
 
-    public String getVacante() {
-        return vacante;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setVacante(String vacante) {
-        this.vacante = vacante;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
-    public String getEmpresa() {
-        return empresa;
+    public String getCategoria() {
+        return categoria;
     }
 
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
 
-    public String getDescripcionVacante() {
-        return descripcionVacante;
+    public String getEstatus() {
+        return estatus;
     }
 
-    public void setDescripcionVacante(String descripcionVacante) {
-        this.descripcionVacante = descripcionVacante;
+    public void setEstatus(String estatus) {
+        this.estatus = estatus;
     }
 
-    public Date getFechaVacante() {
-        return fechaVacante;
+    public Date getFechaPublicacion() {
+        return fechaPublicacion;
     }
 
-    public void setFechaVacante(Date fechaVacante) {
-        this.fechaVacante = fechaVacante;
+    public void setFechaPublicacion(Date fechaPublicacion) {
+        this.fechaPublicacion = fechaPublicacion;
+    }
+
+    public Integer getVacanteDestacada() {
+        return vacanteDestacada;
+    }
+
+    public void setVacanteDestacada(Integer vacanteDestacada) {
+        this.vacanteDestacada = vacanteDestacada;
     }
 
     public double getSalario() {
@@ -77,14 +93,11 @@ public class Vacante {
         this.salario = salario;
     }
 
-    @Override
-    public String toString() {
-        return "Vacante{" +
-                "id=" + id +
-                ", vacante='" + vacante + '\'' +
-                ", descripcionVacante='" + descripcionVacante + '\'' +
-                ", fechaVacante=" + fechaVacante +
-                ", salario=" + salario +
-                '}';
+    public String getDetallesVacante() {
+        return detallesVacante;
+    }
+
+    public void setDetallesVacante(String detallesVacante) {
+        this.detallesVacante = detallesVacante;
     }
 }
