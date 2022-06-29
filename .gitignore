@@ -36,3 +36,4 @@ build/
 ### Folders ignored from util ###
 /src/main/resources/static/utils/backup&documents
 /src/main/resources/static/utils/html-template-empleos
+/src/main/resources/static/utils/pdf/*
