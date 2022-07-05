@@ -7,11 +7,15 @@ import org.springframework.beans.propertyeditors.CustomBooleanEditor;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Objects;
 
 @Controller
 @RequestMapping(value = "/vacantes")
@@ -46,9 +50,20 @@ public class VacantesController {
 
     //este método ejecuta la accion para que el formulario para guarde la nueva vacante
     @PostMapping("/crearVacante")
-    public String crearNuevaVacante(Vacante vacante) {
+    public String crearNuevaVacante(Vacante vacante, BindingResult bindingResult, Model model) {
+        //BindingResult permite manejar errores de tipo de dato !IMPORTANTE! debe estar justo despues del modelo
+        if(bindingResult.hasErrors()){
+            for(ObjectError error: bindingResult.getAllErrors()){
+                System.out.println("Ocurrio un error "+ error.getDefaultMessage());
+            }
+            return "vacantes/form-vacante";
+        }
         iVacanteService.guardarVacante(vacante);
-        return "vacantes/form-vacante";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        List<Vacante> detalleVacantes = iVacanteService.listarVacantes();
+        model.addAttribute("listaVacantes",detalleVacantes);
+        model.addAttribute("sdf",sdf);
+        return "lista-vacante";
     }
 
     //este metodo funciona para darle formato a los elementos date
