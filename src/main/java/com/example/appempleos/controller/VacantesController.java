@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +52,7 @@ public class VacantesController {
 
     //este método ejecuta la accion para que el formulario para guarde la nueva vacante
     @PostMapping("/crearVacante")
-    public String crearNuevaVacante(Vacante vacante, BindingResult bindingResult) {
+    public String crearNuevaVacante(Vacante vacante, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
         //BindingResult permite manejar errores de tipo de dato !IMPORTANTE! debe estar justo despues del modelo
         if(bindingResult.hasErrors()){
             for(ObjectError error: bindingResult.getAllErrors()){
@@ -60,6 +61,7 @@ public class VacantesController {
             return "vacantes/form-vacante";
         }
         iVacanteService.guardarVacante(vacante);
+        redirectAttributes.addFlashAttribute("msg", "Registo Guardado con Éxito");
         return "redirect:/lista-vacantes";
     }
 
