@@ -73,6 +73,7 @@ public class VacantesController {
         webDataBinder.registerCustomEditor(Date.class,new CustomDateEditor(sdf,false));
     }
 
+    //Old code: Ejemplo para obtener elementos especificos de un formulario
    /* @PostMapping("/crearVacante")
     public String crearNuevaVacante(@RequestParam("nombre") String nombre, @RequestParam("descripcion") String descripcion,
                                     @RequestParam("categoria") String categoria, @RequestParam("estatus") String estatus,
