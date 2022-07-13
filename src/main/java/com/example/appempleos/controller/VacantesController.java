@@ -51,7 +51,7 @@ public class VacantesController {
 
     //este método ejecuta la accion para que el formulario para guarde la nueva vacante
     @PostMapping("/crearVacante")
-    public String crearNuevaVacante(Vacante vacante, BindingResult bindingResult, Model model) {
+    public String crearNuevaVacante(Vacante vacante, BindingResult bindingResult) {
         //BindingResult permite manejar errores de tipo de dato !IMPORTANTE! debe estar justo despues del modelo
         if(bindingResult.hasErrors()){
             for(ObjectError error: bindingResult.getAllErrors()){
@@ -60,11 +60,7 @@ public class VacantesController {
             return "vacantes/form-vacante";
         }
         iVacanteService.guardarVacante(vacante);
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        List<Vacante> detalleVacantes = iVacanteService.listarVacantes();
-        model.addAttribute("listaVacantes",detalleVacantes);
-        model.addAttribute("sdf",sdf);
-        return "lista-vacante";
+        return "redirect:/lista-vacantes";
     }
 
     //este metodo funciona para darle formato a los elementos date
