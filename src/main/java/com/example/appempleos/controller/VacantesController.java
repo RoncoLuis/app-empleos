@@ -43,8 +43,9 @@ public class VacantesController {
     }
 
     //este método te redirecciona al formulario para crear una vacante nueva
+    //mostrando errores del registro en la vista del usuario agregando el obj del modelo
     @GetMapping(path = "/crear-vacante")
-    public String formularioVacante() {
+    public String formularioVacante(Vacante vacante) {
         return "vacantes/form-vacante";
     }
 

@@ -27,7 +27,17 @@
         <div class="card">
             <h4 class="card-header"><strong>Ingrese los datos para crear una nueva vacante</strong></h4>
             <div class="card-body">
-                <form th:action="@{/vacantes/crearVacante}" method="post">
+                <!-- Agregando el objeto vacante para mostrar los errores al usuario en la vista -->
+                <!-- El objeto vacante esta definido en el controlado en el getMapping-->
+                <form th:action="@{/vacantes/crearVacante}" method="post" th:object="${vacante}">
+                    <!-- ${#fields.hasErrors('*')} es un condicional propio de thymeleaf -->
+                    <div th:if="${#fields.hasErrors('*')}" class="alert alert-danger" role="alert">
+                        Por favor corrija los siguientes errores:
+                        <ul>
+                            <li th:each="err : ${#fields.errors('*')}" th:text="${err}"></li>
+                        </ul>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-3">
                             <div class="form-group">
