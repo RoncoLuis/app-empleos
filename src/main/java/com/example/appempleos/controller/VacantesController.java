@@ -47,6 +47,7 @@ public class VacantesController {
     //mostrando errores del registro en la vista del usuario agregando el obj del modelo
     @GetMapping(path = "/crear-vacante")
     public String formularioVacante(Vacante vacante) {
+
         return "vacantes/form-vacante";
     }
 

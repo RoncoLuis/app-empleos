@@ -14,6 +14,8 @@
     <link th:href="@{/css/bootstrap/css/jumbotron.css}" rel="stylesheet">
     <link th:href="@{/css/bootstrap/css/sticky-footer-navbar.css}" rel="stylesheet">
     <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" >
+    <!-- TODO: Verificar por que no funcionan los archivos css y js, solo por CDN-->
+    <script src='https://cdn.tiny.cloud/1/no-api-key/tinymce/4.9.11-104/tinymce.min.js'></script>
 </head>
 
 <body>
@@ -137,7 +139,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script th:src="@{/js/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/tinymce/tinymce.min.js}"></script>
+
 <script>
 
     $(function () {
@@ -145,15 +147,13 @@
         }
     );
 
-    /*
+
     tinymce.init({
         selector: '#detalles',
         plugins: "textcolor, table lists code",
         toolbar: " undo redo | bold italic | alignleft aligncenter alignright alignjustify \n\
                   | bullist numlist outdent indent | forecolor backcolor table code"
     });
-
-    */
 
 </script>
 </body>
