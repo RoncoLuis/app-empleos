@@ -16,7 +16,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
-//@RestController with RestController we cannot return a view
+//Con la anotacion @RestController la clase controladora no puede retornan una vista html
 @Controller //we can return an html view
 public class HomeController {
 
