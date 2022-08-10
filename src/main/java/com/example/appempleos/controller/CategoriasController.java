@@ -31,19 +31,17 @@ public class CategoriasController {
     }
 
     @GetMapping(path = "/create")
-    public String crear() {
+    public String crear(Categoria categoria) {
         return "categorias/formCategoria";
     }
 
-    @RequestMapping(path = "/save", method = RequestMethod.POST)
-    public String guardar(@RequestParam("nombre") String nombre,@RequestParam("descripcion") String descripcion) {
-        //los argumentos del @RequestParam coinciden con atributo name en formCategoria
-        System.out.println("Nombre de la categoria:"+nombre);
-        System.out.println("Descripcion:"+descripcion);
-        Categoria categoria = new Categoria();
-        categoria.setNombreCategoria(nombre);
-        categoria.setDescripcionCategoria(descripcion);
+    @PostMapping(path = "/save")
+    public String guardar(Categoria categoria) {
+        //Nota: Agregar el objeto categoria al metodo crear arreglo el problema del binding en este metodo.
+        System.out.println("Nombre de la categoria:" + categoria.getNombreCategoria());
+        System.out.println("Descripcion:" + categoria.getDescripcionCategoria());
         iCategoriaService.guardarCategoria(categoria);
+
         return "redirect:/categoria/index";
     }
 }
