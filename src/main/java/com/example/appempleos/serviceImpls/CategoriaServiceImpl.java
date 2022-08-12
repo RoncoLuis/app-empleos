@@ -19,6 +19,7 @@ public class CategoriaServiceImpl implements ICategoriaService {
 
     @Override
     public List<Categoria> buscarTodas() {
+
         return listaCategorias;
     }
 

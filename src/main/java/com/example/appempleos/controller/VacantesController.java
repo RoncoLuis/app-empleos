@@ -1,6 +1,7 @@
 package com.example.appempleos.controller;
 
 import com.example.appempleos.model.Vacante;
+import com.example.appempleos.services.ICategoriaService;
 import com.example.appempleos.services.IVacanteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomBooleanEditor;
@@ -25,6 +26,9 @@ public class VacantesController {
     @Autowired
     private IVacanteService iVacanteService;
 
+    @Autowired
+    private ICategoriaService categoriaService;
+
     @GetMapping(path = "/view/{id}")
     //Old - No se usara, ahora solo vacantes/detalle-vacantes
     public String verDetalle(@PathVariable(name = "id") int id, Model model) {
@@ -46,8 +50,8 @@ public class VacantesController {
     //este método te redirecciona al formulario para crear una vacante nueva
     //mostrando errores del registro en la vista del usuario agregando el obj del modelo
     @GetMapping(path = "/crear-vacante")
-    public String formularioVacante(Vacante vacante) {
-
+    public String formularioVacante(Vacante vacante, Model model) {
+        model.addAttribute("listaCategorias", categoriaService.buscarTodas());
         return "vacantes/form-vacante";
     }
 

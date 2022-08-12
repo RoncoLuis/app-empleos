@@ -58,11 +58,7 @@
                             <div class="form-group">
                                 <label for="categoria">Categoría</label>
                                 <select class="form-control" th:field="*{categoria}" name="categoria" id="categoria">
-                                    <option value="1">Ventas</option>
-                                    <option value="2">Contabilidad</option>
-                                    <option value="3">Transporte</option>
-                                    <option value="4">Informatica</option>
-                                    <option value="5">Construccion</option>
+                                    <option th:each="categoria:${listaCategorias}" th:value="${categoria.idCategoria}" th:text="${categoria.nombreCategoria}">Ventas</option>
                                 </select>
                             </div>
                         </div>
